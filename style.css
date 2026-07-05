@@ -462,20 +462,8 @@ body{
 .ar-chip-exit{border-color:var(--red);color:var(--red);}
 .ar-chip-exit:hover{background:rgba(229,72,77,.12);}
 
-.ar-hint{
-  align-self:center;
-  font-family:var(--font-mono);font-size:11px;color:var(--text-primary);
-  background:rgba(13,17,22,.72);border:1px solid var(--border);border-radius:999px;
-  padding:8px 16px;text-align:center;pointer-events:none;
-}
-
 .ar-bottombar{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-}
-.ar-gesture-hint{
-  font-family:var(--font-mono);font-size:9.5px;color:var(--text-secondary);
-  background:rgba(13,17,22,.6);border:1px solid var(--border);border-radius:999px;
-  padding:6px 11px;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;gap:10px;
 }
 
 .ar-readout-panel{
@@ -502,8 +490,22 @@ body{
 .ar-tbtn svg{width:16px;height:16px;flex:none;}
 .ar-tbtn:hover{border-color:var(--light);}
 .ar-tbtn.active{border-color:var(--green);color:var(--green);background:rgba(61,203,122,.14);}
-.ar-tbtn-params{padding:8px 12px;}
 .ar-speed-group{display:flex;gap:3px;background:var(--bg-inset);border:1px solid var(--border);border-radius:999px;padding:2px;}
+
+/* Botón flotante de parámetros — separado del transporte para que no
+   compita por espacio ni se reordene con la barra de velocidades; queda
+   anclado a la derecha, justo encima del transporte. */
+.ar-fab-params{
+  position:absolute;right:max(14px, env(safe-area-inset-right));bottom:132px;z-index:7;
+  display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(13,17,22,.82);border:1px solid var(--border);color:var(--text-primary);
+  backdrop-filter:blur(8px);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);
+  transition:border-color .15s ease,color .15s ease;
+}
+.ar-fab-params svg{width:20px;height:20px;}
+.ar-fab-params:hover{border-color:var(--light);color:var(--light);}
+.ar-fab-params.active{border-color:var(--green);color:var(--green);background:rgba(61,203,122,.14);}
 .ar-speed-btn{
   background:transparent;border:none;color:var(--text-secondary);
   font-family:var(--font-mono);font-size:10.5px;font-weight:600;
@@ -557,7 +559,7 @@ body{
 @media (max-width:520px){
   .ar-transport{bottom:56px;gap:6px;padding:6px 8px;}
   .ar-tbtn{padding:7px 8px;font-size:10px;}
-  .ar-tbtn-params span,.ar-tbtn-params{font-size:10px;}
+  .ar-fab-params{bottom:112px;width:42px;height:42px;}
 }
 
 .ar-panel-title{font-family:var(--font-mono);font-size:9.5px;color:var(--light);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
@@ -725,4 +727,3 @@ body{
   }
   .ar-topbar{row-gap:6px;}
 }
-
