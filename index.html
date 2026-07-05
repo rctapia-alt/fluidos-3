@@ -249,28 +249,17 @@
         <button class="ar-chip" data-ar-equip="bowl" title="Ver Purificador de Tazón en AR">Purificador</button>
         <button class="ar-chip" data-ar-equip="pump" title="Ver Bomba Centrífuga en AR">Bomba</button>
       </div>
-      <button class="ar-chip active" id="arToggleLabels" title="Mostrar/ocultar etiquetas flotantes">
-        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10h14M3 6h10M3 14h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Etiquetas
-      </button>
-      <button class="ar-chip" id="arToggleTheory" title="Explorar componentes: tocar una pieza muestra su teoría">
-        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.2" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v4.2M10 6.6v.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        Explorar componentes
-      </button>
       <button class="ar-chip ar-chip-exit" id="arExit" title="Salir de Realidad Aumentada">
         <svg viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         Salir
       </button>
     </div>
 
-    <div class="ar-hint" id="arHint">Apunta la cámara hacia el marcador Hiro impreso · descárgalo en marker.html</div>
-
     <div class="ar-bottombar">
       <button class="ar-chip" id="arResetPlacement" title="Restablecer rotación y escala del equipo">
         <svg viewBox="0 0 20 20" fill="none"><path d="M4 10a6 6 0 1 1 2 4.47M4 10V5M4 10h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Reiniciar posición
       </button>
-      <span class="ar-gesture-hint">1 dedo: rotar · 2 dedos: escalar</span>
     </div>
 
     <!-- Transporte de simulación en AR — Play/Pausa/Reset/velocidad +
@@ -293,11 +282,11 @@
         <button class="ar-speed-btn" data-speed="5">5×</button>
         <button class="ar-speed-btn" data-speed="20">20×</button>
       </div>
-      <button class="ar-tbtn ar-tbtn-params" id="arParamsToggle" title="Parámetros de simulación">
-        <svg viewBox="0 0 20 20" fill="none"><path d="M3 6h9M15.5 6h1.5M3 14h5.5M11.5 14H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="6" r="2.3" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="14" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg>
-        Parámetros
-      </button>
     </div>
+
+    <button class="ar-fab-params" id="arParamsToggle" title="Parámetros de simulación" aria-label="Parámetros de simulación">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M3 6h9M15.5 6h1.5M3 14h5.5M11.5 14H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="6" r="2.3" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="14" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
 
     <!-- Hoja inferior de parámetros AR — sliders poblados desde
          Centrix.getParamGroups(); cada cambio llama Centrix.updateParam -->
