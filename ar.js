@@ -354,12 +354,19 @@ const AR = (() => {
   }
 
   function setupContext(onReady) {
+    // El ancho/alto del canvas de detección DEBE coincidir con el de la
+    // fuente de vídeo (ver sourceWidth/sourceHeight en initARToolkit). Si no
+    // coinciden — p. ej. dejar esto fijo en landscape mientras el teléfono
+    // graba en portrait — AR.js calcula mal la proyección del marcador y el
+    // modelo 3D aparece desplazado hacia una esquina en vez de centrado
+    // sobre el marcador impreso.
+    const landscape = window.innerWidth > window.innerHeight;
     arToolkitContext = new THREEx.ArToolkitContext({
       cameraParametersUrl: "assets/ar/camera_para.dat",
       detectionMode: "mono",
       maxDetectionRate: 30,
-      canvasWidth: 640,
-      canvasHeight: 480
+      canvasWidth: landscape ? 640 : 480,
+      canvasHeight: landscape ? 480 : 640
     });
 
     arToolkitContext.init(() => {
